@@ -24,6 +24,10 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "package": "mtg.counter",
+      "versionCode": 1
+    },
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": [
@@ -34,8 +38,11 @@
         "vue"
       ]
     },
-    "androidNavigationBar": {
-      "visible": "sticky-immersive",
+    "androidStatusBar": {
+      "hidden": true
     },
+    "androidNavigationBar": {
+      "visible": "sticky-immersive"
+    }
   }
 }

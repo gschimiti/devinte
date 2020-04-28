@@ -17,7 +17,7 @@
       </view>
     </touchable-opacity>
 
-    <text class="scoring-score">{{ score }}</text>
+    <text class="scoring-score">{{ lifePoints }}</text>
 
     <touchable-opacity v-bind:onPress="scoreIncrease">
       <view class="scoring-button scoring-button-increase">
@@ -28,22 +28,29 @@
         />
       </view>
     </touchable-opacity>
+
+    <PoisonScoring/>
   </view>
 </template>
 
 <script>
+import PoisonScoring from './PoisonScoring';
+
 export default {
+  components: {
+    PoisonScoring
+  },
   data() {
     return {
-      score: 20
+      lifePoints: 20
     }
   },
   methods: {
     scoreDecrease() {
-      this.score -= 1;
+      this.lifePoints -= 1;
     },
     scoreIncrease() {
-      this.score += 1;
+      this.lifePoints += 1;
     }
   }
 }

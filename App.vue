@@ -1,18 +1,17 @@
 <template>
   <view>
-    <status-bar hidden></status-bar>
-    <Scoring/>
+    <LifeScoring/>
     <view class="line"></view>
-    <Scoring/>
+    <LifeScoring/>
   </view>
 </template>
 
 <script>
-import Scoring from './components/Scoring';
+import LifeScoring from './components/LifeScoring';
 
 export default {
   components: {
-    Scoring
+    LifeScoring
   }
 }
 </script>
