@@ -1,5 +1,5 @@
 <template>
-  <view class="scoring">
+  <view class="life-scoring">
     <view class="scoring-background">
       <image
         :style="{height: 128, width: 128}"
@@ -17,7 +17,7 @@
       </view>
     </touchable-opacity>
 
-    <text class="scoring-score">{{ lifePoints }}</text>
+    <text class="scoring-score">{{ player.lifePoints }}</text>
 
     <touchable-opacity v-bind:onPress="scoreIncrease">
       <view class="scoring-button scoring-button-increase">
@@ -28,29 +28,20 @@
         />
       </view>
     </touchable-opacity>
-
-    <PoisonScoring/>
   </view>
 </template>
 
 <script>
-import PoisonScoring from './PoisonScoring';
-
 export default {
-  components: {
-    PoisonScoring
-  },
-  data() {
-    return {
-      lifePoints: 20
-    }
-  },
+  props: [
+    'player'
+  ],
   methods: {
     scoreDecrease() {
-      this.lifePoints -= 1;
+      this.player.lifePoints -= 1;
     },
     scoreIncrease() {
-      this.lifePoints += 1;
+      this.player.lifePoints += 1;
     }
   }
 }
@@ -65,16 +56,17 @@ export default {
   left: 0;
 }
 
-.scoring {
+.life-scoring {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height: 50%;
+  height: 100%;
 }
 
 .scoring-score {
   color: #333333;
+  font-family: beleren;
   font-size: 44;
   width: 88;
   text-align: center;

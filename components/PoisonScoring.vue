@@ -22,7 +22,7 @@
         :source="require('../assets/icons/skull.png')"
       />
 
-      <text class="poison-scoring-counters">{{ poisonCounters }}</text>
+      <text class="poison-scoring-counters">{{ player.poisonCounters }}</text>
     </view>
 
     <touchable-opacity
@@ -42,25 +42,32 @@
 
 <script>
 export default {
+  props: [
+    'player'
+  ],
   data() {
     return {
-      poisonCounters: 0,
       poisonDecreaseButton: false
     }
   },
   methods: {
     poisonIncrease() {
-      this.poisonCounters += 1;
+      this.player.poisonCounters += 1;
 
       if (!this.poisonDecreaseButton)
         this.poisonDecreaseButton = true;
     },
     poisonDecrease() {
-      this.poisonCounters -= 1;
-
-      if (!this.poisonCounters)
+      if (!this.player.poisonCounters) {
         this.poisonDecreaseButton = false;
+      } else {
+        this.player.poisonCounters -= 1;
+      }
     },
+  },
+  updated: function() {
+    if (!this.player.poisonCounters)
+      this.poisonDecreaseButton = false;
   }
 }
 </script>
@@ -91,6 +98,7 @@ export default {
 .poison-scoring-counters {
   width: 24;
   margin-left: 8;
+  font-family: beleren;
   font-size: 20;
   text-align: center;
 }
