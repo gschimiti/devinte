@@ -3,7 +3,17 @@
     <PlayerScoring :player="players[1]"/>
     <view class="line"></view>
     <PlayerScoring :player="players[0]"/>
-    <ActionsMenu :players="players"/>
+
+    <ActionsMenu
+      :players="players"
+      v-on:settingsOpen="settingsActive = true"
+    />
+
+    <SettingsModal
+      v-if="settingsActive"
+      :players="players"
+      v-on:settingsClose="settingsActive = false"
+    />
   </view>
 </template>
 
@@ -12,11 +22,13 @@ import * as Font from 'expo-font';
 
 import PlayerScoring from './components/PlayerScoring';
 import ActionsMenu from './components/ActionsMenu';
+import SettingsModal from './components/SettingsModal';
 
 export default {
   components: {
     PlayerScoring,
-    ActionsMenu
+    ActionsMenu,
+    SettingsModal
   },
   data() {
     return {
@@ -24,7 +36,8 @@ export default {
       players: [
         {name: 'You', lifePoints: 20, poisonCounters: 0},
         {name: 'Opponent', lifePoints: 20, poisonCounters: 0}
-      ]
+      ],
+      settingsActive: false,
     }
   },
   async mounted() {

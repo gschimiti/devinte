@@ -36,5 +36,6 @@ export default {
   font-family: beleren;
   font-size: 26;
   text-align: center;
+  color: #333333;
 }
 </style>
