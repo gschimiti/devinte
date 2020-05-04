@@ -34,8 +34,8 @@ export default {
     return {
       isLoaded: false,
       players: [
-        {name: 'You', lifePoints: 20, poisonCounters: 0},
-        {name: 'Opponent', lifePoints: 20, poisonCounters: 0}
+        {name: 'You', deckColor: [], lifePoints: 20, poisonCounters: 0},
+        {name: 'Opponent', deckColor: [], lifePoints: 20, poisonCounters: 0}
       ],
       settingsActive: false,
     }

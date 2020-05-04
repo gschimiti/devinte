@@ -1,12 +1,5 @@
 <template>
   <view class="life-scoring">
-    <view class="scoring-background">
-      <image
-        :style="{height: 128, width: 128}"
-        :source="require('../assets/mtg.png')"
-      />
-    </view>
-
     <touchable-opacity v-bind:onPress="scoreDecrease">
       <view class="scoring-button scoring-button-decrease">
         <image
@@ -48,20 +41,12 @@ export default {
 </script>
 
 <style>
-.scoring-background {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  left: 0;
-}
-
 .life-scoring {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height: 100%;
+  height: 30%;
 }
 
 .scoring-score {

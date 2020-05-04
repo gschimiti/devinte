@@ -19,7 +19,7 @@
       <image
         class="poison-scoring-icon"
         :style="{width: 20, height: 20}"
-        :source="require('../assets/icons/skull.png')"
+        :source="require('../assets/poison.png')"
       />
 
       <text class="poison-scoring-counters">{{ player.poisonCounters }}</text>
@@ -74,12 +74,11 @@ export default {
 
 <style>
 .poison-scoring {
-  position: absolute;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 35%;
   width: 100%;
-  left: 0;
-  bottom: 40;
 }
 
 .poison-scoring-button {
