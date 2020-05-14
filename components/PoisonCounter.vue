@@ -20,7 +20,7 @@
     </view>
 
     <UniteButton
-      v-bind:class="{hidden: !poisonDecreaseButton}"
+      v-bind:class="{ hidden: !poisonDecreaseButton }"
       :buttonColor="'transparent'"
       :buttonSize="'small'"
       :icon="'chevron-down'"

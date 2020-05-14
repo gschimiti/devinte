@@ -1,8 +1,7 @@
 <template>
   <view v-if="isLoaded">
-    <PlayerScoring :player="players[1]"/>
-    <view class="line"></view>
-    <PlayerScoring :player="players[0]"/>
+    <PlayerData :player="players[1]"/>
+    <PlayerData :player="players[0]"/>
 
     <ActionsMenu
       :players="players"
@@ -20,13 +19,13 @@
 <script>
 import * as Font from 'expo-font';
 
-import PlayerScoring from './components/PlayerScoring';
+import PlayerData from './components/PlayerData';
 import ActionsMenu from './components/ActionsMenu';
 import SettingsModal from './components/SettingsModal';
 
 export default {
   components: {
-    PlayerScoring,
+    PlayerData,
     ActionsMenu,
     SettingsModal
   },
@@ -49,11 +48,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.line {
-  height: 1;
-  width: 100%;
-  background-color: #ADADAD;
-}
-</style>
