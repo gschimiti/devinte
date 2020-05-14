@@ -48,19 +48,19 @@
       </view>
     </view>
 
-    <LifeScoring :player="player" :lifePoints="player.lifePoints"/>
-    <PoisonScoring :player="player" :poisonCounters="player.poisonCounters"/>
+    <LifeCounter :player="player" :lifePoints="player.lifePoints"/>
+    <PoisonCounter :player="player" :poisonCounters="player.poisonCounters"/>
   </view>
 </template>
 
 <script>
-import LifeScoring from './LifeScoring';
-import PoisonScoring from './PoisonScoring';
+import LifeCounter from './LifeCounter';
+import PoisonCounter from './PoisonCounter';
 
 export default {
   components: {
-    LifeScoring,
-    PoisonScoring
+    LifeCounter,
+    PoisonCounter
   },
   props: [
     'player'

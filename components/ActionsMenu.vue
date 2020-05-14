@@ -1,29 +1,26 @@
 <template>
-  <view class="menu">
-    <touchable-opacity v-bind:onPress="scoringSettings">
-      <view class="menu-button">
-        <image
-          class="menu-button-image"
-          :style="{width: 26, height: 26}"
-          :source="require('../assets/icons/settings.png')"
-        />
-      </view>
-    </touchable-opacity>
+  <view class="actions-menu">
+    <UniteButton
+      class="actions-menu-button"
+      :icon="'settings'"
+      v-on:buttonPressed="scoringSettings"
+    />
 
-    <touchable-opacity v-bind:onPress="scoringReset">
-      <view class="menu-button">
-        <image
-          class="menu-button-image"
-          :style="{width: 26, height: 26}"
-          :source="require('../assets/icons/reload.png')"
-        />
-      </view>
-    </touchable-opacity>
+    <UniteButton
+      class="actions-menu-button"
+      :icon="'reload'"
+      v-on:buttonPressed="scoringReset"
+    />
   </view>
 </template>
 
 <script>
+import UniteButton from './elements/UniteButton';
+
 export default {
+  components: {
+    UniteButton,
+  },
   props: [
     'players'
   ],
@@ -42,24 +39,18 @@ export default {
 </script>
 
 <style>
-.menu {
+.actions-menu {
   position: absolute;
   top: 50%;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: -24;
 }
 
-.menu-button {
-  align-items: center;
-  justify-content: center;
-  border-radius: 8;
-  height: 48;
-  width: 48;
+.actions-menu-button {
   margin-left: 8;
   margin-right: 8;
-  background-color: #333333;
 }
 </style>

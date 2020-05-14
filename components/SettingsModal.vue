@@ -1,14 +1,11 @@
 <template>
   <view class="settings-modal">
     <view class="settings-modal-header">
-      <touchable-opacity v-bind:onPress="close">
-        <view class="modal-header-button">
-          <image
-            :style="{width: 32, height: 32}"
-            :source="require('../assets/icons/back.png')"
-          />
-        </view>
-      </touchable-opacity>
+      <UniteButton
+        :buttonColor="'transparent'"
+        :icon="'arrow-back'"
+        v-on:buttonPressed="emitSettingsClose"
+      />
 
       <text class="modal-header-title">Settings</text>
     </view>
@@ -192,16 +189,21 @@
             </touchable-opacity>
           </view>
         </view>
-      </view>      
+      </view>
     </view>
   </view>
 </template>
 
 <script>
+import UniteButton from './elements/UniteButton';
+
 export default {
   props: [
     'players',
   ],
+  components: {
+    UniteButton
+  },
   methods: {
     toggleDeckColor(player, color) {
       if (!player.deckColor.includes(color)) {
@@ -211,7 +213,7 @@ export default {
         player.deckColor.splice(index, 1);
       }
     },
-    close() {
+    emitSettingsClose() {
       this.$emit('settingsClose');
     }
   }
@@ -234,13 +236,6 @@ export default {
   align-items: center;
   flex-direction: row;
   padding: 8;
-}
-
-.modal-header-button {
-  justify-content: center;
-  align-items: center;
-  height: 48;
-  width: 48;
 }
 
 .modal-header-title {
@@ -289,25 +284,6 @@ export default {
 .text-input-field {
   font-size: 16;
   height: 48;
-}
-
-.modal-controls {
-  width: 100%;
-  padding: 16;
-}
-
-.modal-controls-button {
-  height: 48;
-  background-color: #333333;
-  border-radius: 8;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-controls-button-label {
-  font-family: beleren;
-  font-size: 18;
-  color: #FFFFFF;
 }
 
 .tags-select {
