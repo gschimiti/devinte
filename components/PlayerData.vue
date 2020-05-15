@@ -9,7 +9,7 @@
           v-if="player.deckColor.includes(color)"
           class="deckcolor"
           :style="{ height: 24, width: 24 }"
-          :source="imagePath[color]"
+          :source="iconsPath[color]"
         />
       </view>
     </view>
@@ -34,13 +34,13 @@ export default {
   data () {
     return {
       mtgColors: [ 'W', 'U', 'B', 'R', 'G', 'C' ],
-      imagePath: {
-        'W': require('../assets/w-filled.png'),
-        'U': require('../assets/u-filled.png'),
-        'B': require('../assets/b-filled.png'),
-        'R': require('../assets/r-filled.png'),
-        'G': require('../assets/g-filled.png'),
-        'C': require('../assets/c-filled.png')
+      iconsPath: {
+        'W': require('../assets/mtg-icons/mtg-w-filled.png'),
+        'U': require('../assets/mtg-icons/mtg-u-filled.png'),
+        'B': require('../assets/mtg-icons/mtg-b-filled.png'),
+        'R': require('../assets/mtg-icons/mtg-r-filled.png'),
+        'G': require('../assets/mtg-icons/mtg-g-filled.png'),
+        'C': require('../assets/mtg-icons/mtg-c-filled.png')
       }
     }
   }
