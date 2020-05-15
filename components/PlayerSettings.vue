@@ -2,13 +2,11 @@
   <view class="player-settings">
     <text class="player-settings-label">{{ playerLabel }}</text>
 
-    <view class="text-input">
-      <text class="text-input-label">Name</text>
-      <text-input
-        class="text-input-field"
-        v-model="player.name"
-      />
-    </view>
+    <UniteInput
+      :inputLabel="'Name'"
+      :jsonKey="'name'"
+      :jsonObject="player"
+    />
 
     <view class="tags-select">
       <text class="tags-select-label">Deck Color</text>
@@ -27,6 +25,7 @@
 </template>
 
 <script>
+import UniteInput from './elements/UniteInput'
 import UniteTag from './elements/UniteTag'
 
 export default {
@@ -40,6 +39,7 @@ export default {
     }
   },
   components: {
+    UniteInput,
     UniteTag
   },
   methods: {
@@ -61,33 +61,6 @@ export default {
   font-size: 20;
   color: #333333;
   margin-bottom: 24;
-}
-
-.text-input {
-  width: 100%;
-  padding-left: 8;
-  padding-right: 8;
-  border-radius: 8;
-  margin-bottom: 24;
-  border-color: #ADADAD;
-  border-width: 1;
-}
-
-.text-input-label {
-  font-family: beleren;
-  font-size: 12;
-  color: #ADADAD;
-  position: absolute;
-  left: 4;
-  padding-left: 4;
-  padding-right: 4;
-  background-color: #FFFFFF;
-  top: -8;
-}
-
-.text-input-field {
-  font-size: 16;
-  height: 48;
 }
 
 .tags-select {
