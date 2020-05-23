@@ -3,7 +3,13 @@
     <UniteButton
       class="actions-menu-button"
       :icon="'settings'"
-      v-on:buttonPressed="scoringSettings"
+      v-on:buttonPressed="emitSettingsOpen"
+    />
+
+    <UniteButton
+      class="actions-menu-button"
+      :icon="'dices'"
+      v-on:buttonPressed="emitDicesOpen"
     />
 
     <UniteButton
@@ -29,10 +35,14 @@ export default {
       for (let i = 0, len = this.players.length; i < len; i++) {
         this.players[i].lifePoints = 20;
         this.players[i].poisonCounters = 0;
+        this.players[i].playFirst = false;
       }
     },
-    scoringSettings() {
+    emitSettingsOpen() {
       this.$emit('settingsOpen');
+    },
+    emitDicesOpen() {
+      this.$emit('dicesOpen');
     }
   }
 }

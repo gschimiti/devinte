@@ -1,6 +1,13 @@
 <template>
   <view class="player-data">
     <view class="player-info">
+      <text
+        v-if="player.playFirst"
+        class="player-info-playfirst"
+      >
+        Play First
+      </text>
+
       <text class="player-info-name">{{ player.name }}</text>
 
       <view class="player-info-deckcolor">
@@ -60,6 +67,24 @@ export default {
   justify-content: flex-end;
   height: 35%;
   width: 100%;
+}
+
+.player-info-playfirst {
+  position: absolute;
+  top: 48;
+  left: 0;
+  padding-top: 4;
+  padding-right: 4;
+  padding-bottom: 4;
+  padding-left: 16;
+  font-family: beleren;
+  font-size: 12;
+  background-color: #333333;
+  color: #FFFFFF;
+  border-top-left-radius: 0;
+  border-top-right-radius: 12;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 12;
 }
 
 .player-info-name {

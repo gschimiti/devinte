@@ -31,6 +31,7 @@ export default {
         'arrow-back': require('../../assets/icons/arrow-back.png'),
         'chevron-down': require('../../assets/icons/chevron-down.png'),
         'chevron-up': require('../../assets/icons/chevron-up.png'),
+        'dices': require('../../assets/icons/dices.png'),
         'reload': require('../../assets/icons/reload.png'),
         'remove': require('../../assets/icons/remove.png'),
         'settings': require('../../assets/icons/settings.png')
