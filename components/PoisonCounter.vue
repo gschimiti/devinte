@@ -1,13 +1,14 @@
 <template>
-  <view
-    class="poison-counter"
-    v-bind:style="{ marginBottom: !poisonDecreaseButton ? 32 : 0 }"
-  >
-    <UniteButton
-      :buttonColor="'transparent'"
-      :buttonSize="'small'"
-      :icon="'chevron-up'"
-      v-on:buttonPressed="poisonIncrease"
+  <view class="poison-counter">
+    <MTGButton
+      :custom="{
+        type: 'icon',
+        style: 'circle',
+        size: 'small',
+        icon: poisonDecreaseDisabled ? 'remove-disabled' : 'remove',
+        disabled: poisonDecreaseDisabled
+      }"
+      v-on:buttonPressed="poisonDecrease"
     />
 
     <view class="poison-counter-data">
@@ -19,18 +20,20 @@
       <text class="poison-counters">{{ player.poisonCounters }}</text>
     </view>
 
-    <UniteButton
-      v-bind:class="{ hidden: !poisonDecreaseButton }"
-      :buttonColor="'transparent'"
-      :buttonSize="'small'"
-      :icon="'chevron-down'"
-      v-on:buttonPressed="poisonDecrease"
+    <MTGButton
+      :custom="{
+        type: 'icon',
+        style: 'circle',
+        size: 'small',
+        icon: 'add'
+      }"
+      v-on:buttonPressed="poisonIncrease"
     />
   </view>
 </template>
 
 <script>
-import UniteButton from './elements/UniteButton';
+import MTGButton from './elements/MTGButton';
 
 export default {
   props: [
@@ -38,22 +41,22 @@ export default {
   ],
   data() {
     return {
-      poisonDecreaseButton: false
+      poisonDecreaseDisabled: true
     }
   },
   components: {
-    UniteButton
+    MTGButton
   },
   methods: {
     poisonIncrease() {
       this.player.poisonCounters += 1;
 
-      if (!this.poisonDecreaseButton)
-        this.poisonDecreaseButton = true;
+      if (this.poisonDecreaseDisabled)
+        this.poisonDecreaseDisabled = false;
     },
     poisonDecrease() {
       if (!this.player.poisonCounters) {
-        this.poisonDecreaseButton = false;
+        this.poisonDecreaseDisabled = true;
       } else {
         this.player.poisonCounters -= 1;
       }
@@ -61,16 +64,16 @@ export default {
   },
   updated() {
     if (!this.player.poisonCounters)
-      this.poisonDecreaseButton = false;
+      this.poisonDecreaseDisabled = true;
   }
 }
 </script>
 
 <style>
 .poison-counter {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   height: 35%;
   width: 100%;
 }
@@ -79,6 +82,9 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 32;
+  margin-left: 16;
+  margin-right: 16;
 }
 
 .poison-counters {

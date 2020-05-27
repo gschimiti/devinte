@@ -1,9 +1,13 @@
 <template>
   <view class="settings-modal">
     <view class="settings-modal-header">
-      <UniteButton
-        :buttonColor="'transparent'"
-        :icon="'arrow-back'"
+      <MTGButton
+        :custom="{
+          type: 'icon',
+          style: 'transparent',
+          size: 'big',
+          icon: 'arrow-back'
+        }"
         v-on:buttonPressed="emitSettingsClose"
       />
 
@@ -25,7 +29,7 @@
 </template>
 
 <script>
-import UniteButton from './elements/UniteButton';
+import MTGButton from './elements/MTGButton';
 import PlayerSettings from './PlayerSettings';
 
 export default {
@@ -33,7 +37,7 @@ export default {
     'players',
   ],
   components: {
-    UniteButton,
+    MTGButton,
     PlayerSettings
   },
   methods: {

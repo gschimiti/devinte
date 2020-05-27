@@ -1,31 +1,43 @@
 <template>
   <view class="actions-menu">
-    <UniteButton
+    <MTGButton
       class="actions-menu-button"
-      :icon="'settings'"
+      :custom="{
+        type: 'icon',
+        size: 'big',
+        icon: 'settings'
+      }"
       v-on:buttonPressed="emitSettingsOpen"
     />
 
-    <UniteButton
+    <MTGButton
       class="actions-menu-button"
-      :icon="'dices'"
+      :custom="{
+        type: 'icon',
+        size: 'big',
+        icon: 'dices'
+      }"
       v-on:buttonPressed="emitDicesOpen"
     />
 
-    <UniteButton
+    <MTGButton
       class="actions-menu-button"
-      :icon="'reload'"
+      :custom="{
+        type: 'icon',
+        size: 'big',
+        icon: 'reload'
+      }"
       v-on:buttonPressed="scoringReset"
     />
   </view>
 </template>
 
 <script>
-import UniteButton from './elements/UniteButton';
+import MTGButton from './elements/MTGButton';
 
 export default {
   components: {
-    UniteButton,
+    MTGButton
   },
   props: [
     'players'

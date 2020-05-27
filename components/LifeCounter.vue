@@ -1,30 +1,38 @@
 <template>
   <view class="life-counter">
-    <UniteButton
-      :buttonStyle="'circle'"
-      :icon="'remove'"
+    <MTGButton
+      :custom="{
+        type: 'icon',
+        style: 'circle',
+        size: 'big',
+        icon: 'remove'
+      }"
       v-on:buttonPressed="lifeDecrease"
     />
 
     <text class="life-counter-points">{{ player.lifePoints }}</text>
 
-    <UniteButton
-      :buttonStyle="'circle'"
-      :icon="'add'"
+    <MTGButton
+      :custom="{
+        type: 'icon',
+        style: 'circle',
+        size: 'big',
+        icon: 'add'
+      }"
       v-on:buttonPressed="lifeIncrease"
     />
   </view>
 </template>
 
 <script>
-import UniteButton from './elements/UniteButton';
+import MTGButton from './elements/MTGButton';
 
 export default {
   props: [
     'player'
   ],
   components: {
-    UniteButton
+    MTGButton
   },
   methods: {
     lifeDecrease() {

@@ -42,45 +42,39 @@
       </text>
 
       <view class="dices-choose-menu">
-        <touchable-opacity
+        <MTGButton
           class="dices-button"
-          :style="{
-            height: 48,
-            width: 112,
-            borderRadius: 8,
-            backgroundColor: '#333333'
+          :custom="{
+            type: 'label',
+            size: 'big',
+            label: 'Play First'
           }"
-          v-bind:onPress="() => updatePlayFirst(true)"
-        >
-          <text class="dices-button-text">Play First</text>
-        </touchable-opacity>
+          v-on:buttonPressed="() => updatePlayFirst(true)"
+        />
 
-        <touchable-opacity
+        <MTGButton
           class="dices-button"
-          :style="{
-            height: 48,
-            width: 112,
-            borderRadius: 8,
-            backgroundColor: '#333333'
+          :custom="{
+            type: 'label',
+            size: 'big',
+            label: 'Draw First'
           }"
-          v-bind:onPress="() => updatePlayFirst(false)"
-        >
-          <text class="dices-button-text">Draw First</text>
-        </touchable-opacity>
+          v-on:buttonPressed="() => updatePlayFirst(false)"
+        />
       </view>
     </view>
   </view>
 </template>
 
 <script>
-import UniteButton from './elements/UniteButton';
+import MTGButton from './elements/MTGButton';
 
 export default {
   props: [
     'players'
   ],
   components: {
-    UniteButton
+    MTGButton
   },
   data() {
     return {
@@ -151,18 +145,9 @@ export default {
 }
 
 .dices-button {
-  align-items: center;
-  justify-content: center;
-  padding-left: 16;
-  padding-right: 16;
+  width: 112;
   margin-right: 8;
   margin-left: 8;
-}
-
-.dices-button-text {
-  font-family: beleren;
-  color: #FFFFFF;
-  font-size: 16;
 }
 
 .dices-modal-body {
