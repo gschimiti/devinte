@@ -1,8 +1,8 @@
 export const MTGIcons = {
-  'white': require('./mtg-w.png'),
-  'blue': require('./mtg-u.png'),
-  'black': require('./mtg-b.png'),
-  'red': require('./mtg-r.png'),
-  'green': require('./mtg-g.png'),
-  'colorless': require('./mtg-c.png')
+  'white': require('./mtg-white.png'),
+  'blue': require('./mtg-blue.png'),
+  'black': require('./mtg-black.png'),
+  'red': require('./mtg-red.png'),
+  'green': require('./mtg-green.png'),
+  'colorless': require('./mtg-colorless.png')
 }

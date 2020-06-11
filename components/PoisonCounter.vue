@@ -6,6 +6,7 @@
         style: 'circle',
         size: 'small',
         icon: poisonDecreaseDisabled ? 'remove-disabled' : 'remove',
+        propagate: true,
         disabled: poisonDecreaseDisabled
       }"
       v-on:buttonPressed="poisonDecrease"
@@ -25,7 +26,8 @@
         type: 'icon',
         style: 'circle',
         size: 'small',
-        icon: 'add'
+        icon: 'add',
+        propagate: true
       }"
       v-on:buttonPressed="poisonIncrease"
     />

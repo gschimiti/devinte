@@ -1,8 +1,9 @@
 <template>
   <touchable-opacity
     :class="customClass"
-    v-bind:onPress="emitButtonPressed"
-    :activeOpacity="custom.disabled? 1 : 0"
+    :onPressIn="emitButtonPressed"
+    :onPressOut="custom.propagate ? stopButtonPressed : null"
+    :activeOpacity="custom.disabled ? 1 : 0"
   >
     <image
       v-if="custom.type == 'icon'"
@@ -35,12 +36,19 @@ export default {
   data() {
     return {
       customClass: ['mtg-button'],
-      iconPath: Icons
+      iconPath: Icons,
+      timer: null
     }
   },
   methods: {
     emitButtonPressed() {
       this.$emit('buttonPressed');
+
+      if (this.custom.propagate)
+        this.timer = setTimeout(this.emitButtonPressed, 200);
+    },
+    stopButtonPressed() {
+      clearTimeout(this.timer);
     }
   },
   mounted() {

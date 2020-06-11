@@ -5,7 +5,8 @@
         type: 'icon',
         style: 'circle',
         size: 'big',
-        icon: 'remove'
+        icon: 'remove',
+        propagate: true
       }"
       v-on:buttonPressed="lifeDecrease"
     />
@@ -17,7 +18,8 @@
         type: 'icon',
         style: 'circle',
         size: 'big',
-        icon: 'add'
+        icon: 'add',
+        propagate: true
       }"
       v-on:buttonPressed="lifeIncrease"
     />
