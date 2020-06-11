@@ -1,9 +1,9 @@
 <template>
-  <view class="u-input">
-    <text class="u-input-label">{{ inputLabel }}</text>
+  <view class="mtg-input">
+    <text class="mtg-input-label">{{ inputLabel }}</text>
 
     <text-input
-      class="u-input-field"
+      class="mtg-input-field"
       v-model="jsonObject[jsonKey]"
     />
   </view>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-.u-input {
+.mtg-input {
   width: 100%;
   padding-right: 8;
   padding-left: 8;
@@ -30,7 +30,7 @@ export default {
   margin-bottom: 24;
 }
 
-.u-input-label {
+.mtg-input-label {
   position: absolute;
   top: -8;
   left: 4;
@@ -42,7 +42,7 @@ export default {
   font-size: 12;
 }
 
-.u-input-field {
+.mtg-input-field {
   height: 48;
   font-size: 16;
 }

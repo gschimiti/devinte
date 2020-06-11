@@ -2,7 +2,7 @@
   <view class="player-settings">
     <text class="player-settings-label">{{ playerLabel }}</text>
 
-    <UniteInput
+    <MTGInput
       :inputLabel="'Name'"
       :jsonKey="'name'"
       :jsonObject="player"
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import UniteInput from './elements/UniteInput'
+import MTGInput from './elements/MTGInput'
 import UniteTag from './elements/UniteTag'
 
 export default {
@@ -39,7 +39,7 @@ export default {
     }
   },
   components: {
-    UniteInput,
+    MTGInput,
     UniteTag
   },
   methods: {
