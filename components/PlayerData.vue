@@ -11,12 +11,16 @@
       <text class="player-info-name">{{ player.name }}</text>
 
       <view class="player-info-deckcolor">
-        <image
+        <MTGTag
           v-for="color in mtgColors"
           v-if="player.deckColor.includes(color)"
           class="deckcolor"
-          :style="{ height: 24, width: 24 }"
-          :source="iconsPath[color]"
+          :custom="{
+            keyword: color,
+            size: 'small',
+            color: player.deckColor.includes(color) ? color : null,
+            icon: color
+          }"
         />
       </view>
     </view>
@@ -29,26 +33,22 @@
 <script>
 import LifeCounter from './LifeCounter';
 import PoisonCounter from './PoisonCounter';
+import MTGTag from './elements/MTGTag';
+import { MTGIcons } from '../assets/mtg-icons';
 
 export default {
   components: {
     LifeCounter,
-    PoisonCounter
+    PoisonCounter,
+    MTGTag
   },
   props: [
     'player'
   ],
   data () {
     return {
-      mtgColors: [ 'W', 'U', 'B', 'R', 'G', 'C' ],
-      iconsPath: {
-        'W': require('../assets/mtg-icons/mtg-w-filled.png'),
-        'U': require('../assets/mtg-icons/mtg-u-filled.png'),
-        'B': require('../assets/mtg-icons/mtg-b-filled.png'),
-        'R': require('../assets/mtg-icons/mtg-r-filled.png'),
-        'G': require('../assets/mtg-icons/mtg-g-filled.png'),
-        'C': require('../assets/mtg-icons/mtg-c-filled.png')
-      }
+      mtgColors: [ 'white', 'blue', 'black', 'red', 'green', 'colorless' ],
+      iconsPath: MTGIcons
     }
   }
 }

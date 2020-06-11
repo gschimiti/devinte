@@ -2,6 +2,7 @@
   <touchable-opacity
     :class="customClass"
     v-bind:onPress="emitButtonPressed"
+    :activeOpacity="custom.disabled? 1 : 0"
   >
     <image
       v-if="custom.type == 'icon'"
@@ -64,7 +65,7 @@ export default {
     const index = this.customClass.indexOf('is-disabled');
 
     if (!this.custom.disabled && index > -1)
-        this.customClass.splice(index, 1);
+      this.customClass.splice(index, 1);
 
     if (this.custom.disabled && index < 0)
       this.customClass.push('is-disabled');

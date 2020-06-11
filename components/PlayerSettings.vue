@@ -12,11 +12,15 @@
       <text class="tags-select-label">Deck Color</text>
 
       <view class="tags-select-list">
-        <UniteTag
+        <MTGTag
           v-for="color in mtgColors"
           class="tag"
-          :tagColor="player.deckColor.includes(color) ? color : null"
-          :icon="color"
+          :custom="{
+            type: 'select',
+            keyword: color,
+            color: player.deckColor.includes(color) ? color : null,
+            icon: color
+          }"
           v-on:tagPressed="() => toggleDeckColor(player, color)"
         />
       </view>
@@ -25,8 +29,8 @@
 </template>
 
 <script>
-import MTGInput from './elements/MTGInput'
-import UniteTag from './elements/UniteTag'
+import MTGInput from './elements/MTGInput';
+import MTGTag from './elements/MTGTag';
 
 export default {
   props: [
@@ -35,12 +39,12 @@ export default {
   ],
   data () {
     return {
-      mtgColors: [ 'W', 'U', 'B', 'R', 'G', 'C' ],
+      mtgColors: [ 'white', 'blue', 'black', 'red', 'green', 'colorless' ],
     }
   },
   components: {
     MTGInput,
-    UniteTag
+    MTGTag
   },
   methods: {
     toggleDeckColor(player, color) {
