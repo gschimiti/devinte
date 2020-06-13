@@ -34,7 +34,6 @@
 import LifeCounter from './LifeCounter';
 import PoisonCounter from './PoisonCounter';
 import MTGTag from './elements/MTGTag';
-import { MTGIcons } from '../assets/mtg-icons';
 
 export default {
   components: {
@@ -48,7 +47,6 @@ export default {
   data () {
     return {
       mtgColors: [ 'white', 'blue', 'black', 'red', 'green', 'colorless' ],
-      iconsPath: MTGIcons
     }
   }
 }

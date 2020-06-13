@@ -3,19 +3,20 @@
     :class="customClass"
     :onPressIn="emitButtonPressed"
     :onPressOut="custom.propagate ? stopButtonPressed : null"
-    :activeOpacity="custom.disabled ? 1 : 0"
+    :activeOpacity="custom.disabled ? 1 : 0.4"
   >
-    <image
+    <view
       v-if="custom.type == 'icon'"
       class="mtg-button-icon"
-      :source="iconPath[custom.icon]"
       :style="{
         height: (custom.size == 'small') ? 18 :
                 (custom.size == 'big') ? 26 : 22,
         width: (custom.size == 'small') ? 18 :
                (custom.size == 'big') ? 26 : 22,
       }"
-    />
+    >
+      <SVGImage :name="custom.icon"/>
+    </view>
 
     <text
       v-if="custom.type == 'label'"
@@ -27,16 +28,18 @@
 </template>
 
 <script>
-import { Icons } from '../../assets/icons';
+import SVGImage from '../../assets/icons';
 
 export default {
   props: {
     custom: Object
   },
+  components: {
+    SVGImage
+  },
   data() {
     return {
       customClass: ['mtg-button'],
-      iconPath: Icons,
       timer: null
     }
   },

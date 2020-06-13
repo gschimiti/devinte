@@ -13,19 +13,17 @@
       <view class="player-dice">
         <text class="player-dice-label">{{ players[1].name }}</text>
 
-        <image
-          :source="iconPath[players[1].diceValue]"
-          :style="{height: 72, width: 72}"
-        />
+        <view :style="{height: 72, width: 72}">
+          <SVGImage :name="players[1].diceValue"/>
+        </view>
       </view>
 
       <view class="player-dice">
         <text class="player-dice-label">{{ players[0].name }}</text>
 
-        <image
-          :source="iconPath[players[0].diceValue]"
-          :style="{height: 72, width: 72}"
-        />
+        <view :style="{height: 72, width: 72}">
+          <SVGImage :name="players[0].diceValue"/>
+        </view>
       </view>
     </view>
 
@@ -67,6 +65,7 @@
 </template>
 
 <script>
+import SVGImage from '../assets/dices';
 import MTGButton from './elements/MTGButton';
 
 export default {
@@ -74,19 +73,12 @@ export default {
     'players'
   ],
   components: {
-    MTGButton
+    MTGButton,
+    SVGImage
   },
   data() {
     return {
-      isRolling: true,
-      iconPath: {
-        1: require('../assets/dice-one.png'),
-        2: require('../assets/dice-two.png'),
-        3: require('../assets/dice-three.png'),
-        4: require('../assets/dice-four.png'),
-        5: require('../assets/dice-five.png'),
-        6: require('../assets/dice-six.png')
-      }
+      isRolling: true
     }
   },
   methods: {

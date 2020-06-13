@@ -25,7 +25,6 @@
 
 <script>
 import * as Font from 'expo-font';
-
 import PlayerData from './components/PlayerData';
 import ActionsMenu from './components/ActionsMenu';
 import SettingsModal from './components/SettingsModal';

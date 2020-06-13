@@ -4,24 +4,25 @@
     v-bind:onPress="custom.type ? emitTagPressed : null"
     :activeOpacity="1"
   >
-    <image
-      class="mtg-tag-icon"
-      :source="iconPath[custom.icon]"
+    <SVGImage
+      :name="custom.icon"
     />
   </touchable-opacity>
 </template>
 
-<script>
-import { MTGIcons } from '../../assets/mtg-icons';
+<script>;
+import SVGImage from '../../assets/mtg-icons';
 
 export default {
   props: {
     custom: Object
   },
+  components: {
+    SVGImage
+  },
   data() {
     return {
-      customClass: ['mtg-tag'],
-      iconPath: MTGIcons
+      customClass: ['mtg-tag']
     }
   },
   methods: {
@@ -58,11 +59,6 @@ export default {
   height: 40;
   width: 40;
   border-radius: 20;
-}
-
-.mtg-tag-icon {
-  height: 100%;
-  width: 100%;
 }
 
 .is-small {

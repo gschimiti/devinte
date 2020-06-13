@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mtg-counter",
-    "slug": "mtg-counter",
+    "name": "Devinte - MTG Life Counter",
+    "slug": "devinte",
     "platforms": [
       "ios",
       "android",
@@ -9,9 +9,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/etc/devinte-icon-x000.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/etc/devinte-splash-x000.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

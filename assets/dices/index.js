@@ -3,13 +3,12 @@ import { SvgXml } from 'react-native-svg';
 
 export default function SVGImage({name}) {
   const svgOptions = {
-    'add': require('./add'),
-    'arrow-back': require('./arrow-back'),
-    'dices': require('./dices'),
-    'reload': require('./reload'),
-    'remove': require('./remove'),
-    'remove-disabled': require('./remove-disabled'),
-    'settings': require('./settings')
+    1: require('./dice-one'),
+    2: require('./dice-two'),
+    3: require('./dice-three'),
+    4: require('./dice-four'),
+    5: require('./dice-five'),
+    6: require('./dice-six'),
   }
 
   const svgFile = svgOptions[name];

@@ -13,10 +13,9 @@
     />
 
     <view class="poison-counter-data">
-      <image
-        :style="{ width: 20, height: 20 }"
-        :source="require('../assets/poison.png')"
-      />
+      <view :style="{ width: 20, height: 20 }">
+        <SVGImage name="poison"/>
+      </view>
 
       <text class="poison-counters">{{ player.poisonCounters }}</text>
     </view>
@@ -35,6 +34,7 @@
 </template>
 
 <script>
+import SVGImage from '../assets/mtg-icons';
 import MTGButton from './elements/MTGButton';
 
 export default {
@@ -47,7 +47,8 @@ export default {
     }
   },
   components: {
-    MTGButton
+    MTGButton,
+    SVGImage
   },
   methods: {
     poisonIncrease() {
