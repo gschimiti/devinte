@@ -48,7 +48,7 @@ export default {
       this.$emit('buttonPressed');
 
       if (this.custom.propagate)
-        this.timer = setTimeout(this.emitButtonPressed, 200);
+        this.timer = setTimeout(this.emitButtonPressed, 400);
     },
     stopButtonPressed() {
       clearTimeout(this.timer);

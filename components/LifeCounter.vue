@@ -51,13 +51,15 @@ export default {
 .life-counter {
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 30%;
   width: 100%;
 }
 
 .life-counter-points {
-  width: 88;
+  width: 120;
+  margin-left: 32;
+  margin-right: 32;
   color: #333333;
   font-family: beleren;
   font-size: 44;
