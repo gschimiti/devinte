@@ -4,6 +4,7 @@
     <PlayerData :player="players[0]"/>
 
     <ActionsMenu
+      :mode="commanderMode"
       :players="players"
       v-on:settingsOpen="settingsActive = true"
       v-on:dicesOpen="dicesActive = true"
@@ -11,8 +12,10 @@
 
     <SettingsModal
       v-if="settingsActive"
+      :mode="commanderMode"
       :players="players"
       v-on:settingsClose="settingsActive = false"
+      v-on:modeChanged="commanderMode = !commanderMode"
     />
 
     <DicesModal
@@ -40,6 +43,7 @@ export default {
   data() {
     return {
       isLoaded: false,
+      commanderMode: false,
       players: [
         {name: 'You', deckColor: [], lifePoints: 20, poisonCounters: 0, diceValue: 1, playFirst: false},
         {name: 'Opponent', deckColor: [], lifePoints: 20, poisonCounters: 0, diceValue: 1, playFirst: false}

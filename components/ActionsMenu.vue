@@ -40,12 +40,13 @@ export default {
     MTGButton
   },
   props: [
+    'mode',
     'players'
   ],
   methods: {
     scoringReset() {
       for (let i = 0, len = this.players.length; i < len; i++) {
-        this.players[i].lifePoints = 20;
+        this.players[i].lifePoints = this.mode ? 40 : 20;
         this.players[i].poisonCounters = 0;
         this.players[i].playFirst = false;
       }

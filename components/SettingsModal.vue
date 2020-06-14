@@ -15,6 +15,15 @@
     </view>
 
     <view class="settings-modal-body">
+      <MTGSwitch
+        :custom="{
+          label: 'Commander Mode',
+          active: mode
+        }"
+        :style="{ marginBottom: 32 }"
+        v-on:switchToggled="emitModeChanged"
+      />
+
       <PlayerSettings
         :player="players[1]"
         :playerLabel="'Opponent'"
@@ -30,19 +39,30 @@
 
 <script>
 import MTGButton from './elements/MTGButton';
+import MTGSwitch from './elements/MTGSwitch';
 import PlayerSettings from './PlayerSettings';
 
 export default {
   props: [
-    'players',
+    'mode',
+    'players'
   ],
   components: {
     MTGButton,
+    MTGSwitch,
     PlayerSettings
   },
   methods: {
     emitSettingsClose() {
       this.$emit('settingsClose');
+    },
+    emitModeChanged() {
+      this.mode = !this.mode;
+
+      for (let index in this.players)
+        this.players[index]['lifePoints'] += this.mode ? 20 : -20;
+
+      this.$emit('modeChanged');
     }
   }
 }
@@ -76,7 +96,7 @@ export default {
 .settings-modal-body {
   padding-left: 16;
   padding-right: 16;
-  padding-top: 32;
+  padding-top: 24;
   width: 100%;
 }
 </style>
