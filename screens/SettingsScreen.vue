@@ -8,7 +8,7 @@
           size: 'big',
           icon: 'arrow-back'
         }"
-        v-on:buttonPressed="emitSettingsClose"
+        v-on:buttonPressed="gotoHome"
       />
 
       <text class="modal-header-title">Settings</text>
@@ -18,10 +18,10 @@
       <MTGSwitch
         :custom="{
           label: 'Commander Mode',
-          active: mode
+          active: options.commanderMode
         }"
         :style="{ marginBottom: 32 }"
-        v-on:switchToggled="emitModeChanged"
+        v-on:switchToggled="changeGameMode"
       />
 
       <PlayerSettings
@@ -38,32 +38,35 @@
 </template>
 
 <script>
-import MTGButton from './elements/MTGButton';
-import MTGSwitch from './elements/MTGSwitch';
-import PlayerSettings from './PlayerSettings';
+import MTGButton from '../components/elements/MTGButton';
+import MTGSwitch from '../components/elements/MTGSwitch';
+import PlayerSettings from '../components/PlayerSettings';
 
 export default {
-  props: [
-    'mode',
-    'players'
-  ],
+  props: {
+    options: Object,
+    players: Array,
+    navigation: Object
+  },
   components: {
     MTGButton,
     MTGSwitch,
     PlayerSettings
   },
   methods: {
-    emitSettingsClose() {
-      this.$emit('settingsClose');
+    gotoHome() {
+      this.navigation.goBack();
     },
-    emitModeChanged() {
-      this.mode = !this.mode;
+    changeGameMode() {
+      this.options.commanderMode = !this.options.commanderMode;
 
       for (let index in this.players)
-        this.players[index]['lifePoints'] += this.mode ? 20 : -20;
-
-      this.$emit('modeChanged');
+        this.players[index]['lifePoints'] += this.options.commanderMode ? 20 : -20;
     }
+  },
+  created() {
+    this.options = this.navigation.state.params.options;
+    this.players = this.navigation.state.params.players;
   }
 }
 </script>

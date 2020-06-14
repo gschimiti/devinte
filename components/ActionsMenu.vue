@@ -7,7 +7,7 @@
         size: 'big',
         icon: 'settings'
       }"
-      v-on:buttonPressed="emitSettingsOpen"
+      v-on:buttonPressed="gotoSettings"
     />
 
     <MTGButton
@@ -17,7 +17,7 @@
         size: 'big',
         icon: 'dices'
       }"
-      v-on:buttonPressed="emitDicesOpen"
+      v-on:buttonPressed="gotoDices"
     />
 
     <MTGButton
@@ -39,23 +39,29 @@ export default {
   components: {
     MTGButton
   },
-  props: [
-    'mode',
-    'players'
-  ],
+  props: {
+    options: Object,
+    players: Array,
+    navigation: Object,
+  },
   methods: {
     scoringReset() {
       for (let i = 0, len = this.players.length; i < len; i++) {
-        this.players[i].lifePoints = this.mode ? 40 : 20;
+        this.players[i].lifePoints = this.options.commanderMode ? 40 : 20;
         this.players[i].poisonCounters = 0;
         this.players[i].playFirst = false;
       }
     },
-    emitSettingsOpen() {
-      this.$emit('settingsOpen');
+    gotoSettings() {
+      this.navigation.navigate('Settings', {
+        options: this.options,
+        players: this.players
+      });
     },
-    emitDicesOpen() {
-      this.$emit('dicesOpen');
+    gotoDices() {
+      this.navigation.navigate('Dices', {
+        players: this.players
+      })
     }
   }
 }

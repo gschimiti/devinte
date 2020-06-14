@@ -66,12 +66,13 @@
 
 <script>
 import SVGImage from '../assets/dices';
-import MTGButton from './elements/MTGButton';
+import MTGButton from '../components/elements/MTGButton';
 
 export default {
-  props: [
-    'players'
-  ],
+  props: {
+    players: Array,
+    navigation: Object
+  },
   components: {
     MTGButton,
     SVGImage
@@ -100,8 +101,11 @@ export default {
         this.players[1].playFirst = bool;
       }
 
-      this.$emit('dicesClose');
+      this.navigation.goBack();
     }
+  },
+  created() {
+    this.players = this.navigation.state.params.players;
   },
   mounted() {
     function timeout(updateDicesFunction, n, stop) {

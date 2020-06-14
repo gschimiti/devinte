@@ -1,63 +1,42 @@
 <template>
-  <view v-if="isLoaded">
-    <PlayerData :player="players[1]"/>
-    <PlayerData :player="players[0]"/>
-
-    <ActionsMenu
-      :mode="commanderMode"
-      :players="players"
-      v-on:settingsOpen="settingsActive = true"
-      v-on:dicesOpen="dicesActive = true"
-    />
-
-    <SettingsModal
-      v-if="settingsActive"
-      :mode="commanderMode"
-      :players="players"
-      v-on:settingsClose="settingsActive = false"
-      v-on:modeChanged="commanderMode = !commanderMode"
-    />
-
-    <DicesModal
-      v-if="dicesActive"
-      :players="players"
-      v-on:dicesClose="dicesActive = false"
-    />
-  </view>
+  <app-navigator></app-navigator>
 </template>
 
 <script>
-import * as Font from 'expo-font';
-import PlayerData from './components/PlayerData';
-import ActionsMenu from './components/ActionsMenu';
-import SettingsModal from './components/SettingsModal';
-import DicesModal from './components/DicesModal';
+import { createAppContainer, createStackNavigator } from 'vue-native-router';
+
+import HomeScreen from './screens/HomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import DicesScreen from './screens/DicesScreen';
+
+const StackNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: { headerShown: false }
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: { headerShown: false }
+    },
+    Dices: {
+      screen: DicesScreen,
+      navigationOptions: { headerShown: false }
+    }
+  },
+  {
+    initialRouteName: 'Home'
+  }
+);
+
+const AppNavigator = createAppContainer(StackNavigator);
 
 export default {
   components: {
-    PlayerData,
-    ActionsMenu,
-    SettingsModal,
-    DicesModal,
-  },
-  data() {
-    return {
-      isLoaded: false,
-      commanderMode: false,
-      players: [
-        {name: 'You', deckColor: [], lifePoints: 20, poisonCounters: 0, diceValue: 1, playFirst: false},
-        {name: 'Opponent', deckColor: [], lifePoints: 20, poisonCounters: 0, diceValue: 1, playFirst: false}
-      ],
-      settingsActive: false,
-      dicesActive: false
-    }
-  },
-  async mounted() {
-    await Font.loadAsync({
-      'beleren': require('./assets/fonts/Beleren-Bold.ttf')
-    });
-
-    this.isLoaded = true;
+    AppNavigator
   }
 }
 </script>
+
+<style>
+</style>
