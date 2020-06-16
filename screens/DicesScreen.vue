@@ -1,5 +1,7 @@
 <template>
   <view class="settings-modal">
+    <status-bar/>
+
     <view class="dices-modal-header">
       <text
         v-if="isRolling"

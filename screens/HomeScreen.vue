@@ -1,5 +1,7 @@
 <template>
   <view v-if="isLoaded">
+    <status-bar/>
+
     <PlayerData :player="players[1]"/>
     <PlayerData :player="players[0]"/>
 
