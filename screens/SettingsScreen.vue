@@ -16,7 +16,10 @@
       <text class="settings-screen-header-title">Settings</text>
     </view>
 
-    <scroll-view class="settings-screen-body">
+    <scroll-view
+      class="settings-screen-body"
+      :keyboardShouldPersistTaps="'handled'"
+    >
       <MTGSwitch
         :custom="{
           label: 'Commander Mode',
