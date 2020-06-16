@@ -25,8 +25,16 @@
           label: 'Commander Mode',
           active: options.commanderMode
         }"
-        :style="{ marginBottom: 32 }"
         v-on:switchToggled="changeGameMode"
+      />
+
+      <MTGSwitch
+        :custom="{
+          label: 'Flip Opponent',
+          active: options.flipOpponent
+        }"
+        :style="{ marginBottom: 24 }"
+        v-on:switchToggled="flipOpponentData"
       />
 
       <PlayerSettings
@@ -68,6 +76,9 @@ export default {
 
       for (let index in this.players)
         this.players[index]['lifePoints'] += this.options.commanderMode ? 20 : -20;
+    },
+    flipOpponentData() {
+      this.options.flipOpponent = !this.options.flipOpponent;
     }
   },
   created() {

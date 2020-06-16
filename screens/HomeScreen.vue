@@ -2,7 +2,12 @@
   <view v-if="isLoaded">
     <status-bar/>
 
-    <PlayerData :player="players[1]"/>
+    <PlayerData
+      :class="gameOptions.flipOpponent ? 'is-flipped' : ''"
+      :player="players[1]"
+      :key="gameOptions.flipOpponent"
+    />
+
     <PlayerData :player="players[0]"/>
 
     <ActionsMenu
@@ -29,7 +34,8 @@ export default {
     return {
       isLoaded: false,
       gameOptions: {
-        commanderMode: false
+        commanderMode: false,
+        flipOpponent: false
       },
       players: [
         {name: 'You', deckColor: [], lifePoints: 20, poisonCounters: 0, diceValue: 1, playFirst: false},
@@ -50,4 +56,7 @@ export default {
 </script>
 
 <style>
+.is-flipped {
+  transform: rotate(180deg);
+}
 </style>
