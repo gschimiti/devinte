@@ -77,7 +77,6 @@ export default {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  height: 35%;
   width: 100%;
 }
 

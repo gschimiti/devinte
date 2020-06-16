@@ -54,8 +54,9 @@ export default {
 
 <style>
 .player-data {
+  align-items: center;
+  justify-content: center;
   display: flex;
-  height: 50%;
   width: 100%;
 }
 
@@ -63,13 +64,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 35%;
   width: 100%;
 }
 
 .player-info-playfirst {
   position: absolute;
-  top: 48;
+  top: 0;
   left: 0;
   padding-top: 4;
   padding-right: 4;
@@ -77,7 +77,7 @@ export default {
   padding-left: 16;
   font-family: beleren;
   font-size: 12;
-  background-color: #333333;
+  background-color: #322FFE;
   color: #FFFFFF;
   border-top-left-radius: 0;
   border-top-right-radius: 12;

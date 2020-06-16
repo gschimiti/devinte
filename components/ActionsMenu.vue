@@ -71,11 +71,12 @@ export default {
 .actions-menu {
   position: absolute;
   top: 50%;
+  z-index: 8;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
   margin-top: -24;
+  background-color: #FFFFFF;
 }
 
 .actions-menu-button {
