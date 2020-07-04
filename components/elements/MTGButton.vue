@@ -10,9 +10,9 @@
       class="mtg-button-icon"
       :style="{
         height: (custom.size == 'small') ? 18 :
-                (custom.size == 'big') ? 26 : 22,
+                (custom.size == 'big') ? 34 : 28,
         width: (custom.size == 'small') ? 18 :
-               (custom.size == 'big') ? 26 : 22,
+               (custom.size == 'big') ? 34 : 28,
       }"
     >
       <SVGImage :name="custom.icon"/>

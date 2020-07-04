@@ -4,7 +4,7 @@
       class="actions-menu-button"
       :custom="{
         type: 'icon',
-        size: 'big',
+        style: 'transparent',
         icon: 'settings'
       }"
       v-on:buttonPressed="gotoSettings"
@@ -14,7 +14,7 @@
       class="actions-menu-button"
       :custom="{
         type: 'icon',
-        size: 'big',
+        style: 'transparent',
         icon: 'dices'
       }"
       v-on:buttonPressed="gotoDices"
@@ -24,7 +24,7 @@
       class="actions-menu-button"
       :custom="{
         type: 'icon',
-        size: 'big',
+        style: 'transparent',
         icon: 'reload'
       }"
       v-on:buttonPressed="scoringReset"
@@ -75,7 +75,9 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: -24;
+  padding-left: 8;
+  padding-right: 8;
+  margin-top: -20;
   background-color: #FFFFFF;
 }
 
