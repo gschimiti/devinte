@@ -92,6 +92,7 @@ export default {
 .poison-counters {
   width: 24;
   margin-left: 8;
+  color: #333333;
   font-family: beleren;
   font-size: 20;
   text-align: center;

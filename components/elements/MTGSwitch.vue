@@ -54,6 +54,8 @@ export default {
 
 .mtg-switch-label {
   width: 200;
+  color: #333333;
+  font-family: inter;
   font-size: 16;
 }
 

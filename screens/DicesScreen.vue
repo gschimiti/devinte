@@ -137,6 +137,8 @@ export default {
 }
 
 .dices-modal-header-text {
+  color: #333333;
+  font-family: inter;
   font-size: 16;
   line-height: 22;
   text-align: center;
@@ -165,6 +167,8 @@ export default {
 
 .dices-modal-footer-text {
   margin-bottom: 32;
+  color: #333333;
+  font-family: inter;
   font-size: 16;
   line-height: 22;
   text-align: center;

@@ -30,6 +30,7 @@
 
 <script>
 import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 import PlayerData from '../components/PlayerData';
 import ActionsMenu from '../components/ActionsMenu';
 
@@ -55,10 +56,15 @@ export default {
   },
   async mounted() {
     await Font.loadAsync({
-      'beleren': require('../assets/fonts/Beleren-Bold.ttf')
+      'beleren': require('../assets/fonts/Beleren-Bold.ttf'),
+      'inter': require('../assets/fonts/Inter-Regular.ttf')
     });
 
     this.isLoaded = true;
+
+    setTimeout(async () => {
+      await SplashScreen.hideAsync();
+    }, 1500);
   }
 }
 </script>

@@ -44,6 +44,8 @@ export default {
 
 .mtg-input-field {
   height: 48;
+  color: #333333;
+  font-family: inter;
   font-size: 16;
 }
 </style>
